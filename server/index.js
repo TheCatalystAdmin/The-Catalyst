@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const Register = require('./routes/auth/register');
+const Login = require('./routes/auth/login');
 dotenv.config();
 app.use(express.json());
+app.use('/api/register', Register);
+app.use('/api/login', Login);
 
 //Connect to DB
 try {
