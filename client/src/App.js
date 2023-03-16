@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+
+  const [selected, setSelected] = useState(null);
+  const highlight = window.getSelection().toString();
+
+  useEffect(() => {
+    if (window.getSelection().toString() === "") {
+      setSelected(null);
+    }
+  }, [highlight])
+
+  const handleSelection = () => {
+    const selection = window.getSelection();
+    let text = selection.toString();
+    //Make the selection bold
+    text = text.bold()
+    setSelected(text);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>The Catalyst</h1>
+      <div contentEditable={"true"} className="input" onMouseUp={handleSelection} >
+        asasas
+        </div>
+      <div className="output">
+        <p>{selected}</p>
+      </div>
     </div>
   );
 }

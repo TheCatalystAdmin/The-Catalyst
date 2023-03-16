@@ -4,10 +4,12 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const Register = require('./routes/auth/register');
 const Login = require('./routes/auth/login');
+const Post = require('./routes/posts/create-post');
 dotenv.config();
 app.use(express.json());
 app.use('/api/register', Register);
 app.use('/api/login', Login);
+app.use('/api/post', Post);
 
 //Connect to DB
 try {
