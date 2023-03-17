@@ -1,0 +1,78 @@
+.wrapper {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #008F84, #bda100);
+    width: 400px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box h2 {
+    font-size: clamp(1.1rem, 2.1vw, 2rem);
+    color: #008F84;
+}
+.input {
+    width: 90%;
+    margin-top: 20px !important;
+}
+.error {
+    color: red;
+    font-size: 1rem;
+    margin-top: 20px;
+    height: 20px
+}
+.button {
+    width: 90%;
+    margin: 20px 20px;
+    background-color: #008F84;
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s all ease;
+    &:hover {
+        background-color: #FFD700;
+        color: #000;
+    }
+}
+.signIn {
+    margin-top: 20px;
+}
+.or {
+    font-weight: bold;
+}
+.google, .facebook{
+    background-color: red;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    &:hover {
+        background-color: #000;
+        color: #fff;
+    }
+}
+.facebook {
+    background-color: rgb(62, 62, 248);
+}
+.icon {
+    font-size: 1.2rem;
+    margin-right: 42px;
+}
+.divider {
+    margin: 20px 0px;
+    border-top: 0.5px solid rgb(197, 197, 197);
+    width: 50%;
+}

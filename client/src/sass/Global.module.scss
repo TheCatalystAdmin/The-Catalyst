@@ -34,3 +34,12 @@ $text: #2F4858;
         color: #fff;
     }
 }
+.loader {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
