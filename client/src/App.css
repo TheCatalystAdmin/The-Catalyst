@@ -1,15 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
 .App {
-  text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-}
-.input {
-  height: 20vh;
-  width: 400px;
-  font-size: 1.2rem;
-  font-family: Arial
-}
-.output {
-  font-size: 1.5rem;
-  font-family: Arial
+  font-family: "Oxygen";
+  padding-top: 70px;
 }

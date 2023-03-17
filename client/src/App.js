@@ -1,36 +1,14 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
-function App() {
-
-  const [selected, setSelected] = useState(null);
-  const highlight = window.getSelection().toString();
-
-  useEffect(() => {
-    if (window.getSelection().toString() === "") {
-      setSelected(null);
-    }
-  }, [highlight])
-
-  const handleSelection = () => {
-    const selection = window.getSelection();
-    let text = selection.toString();
-    //Make the selection bold
-    text = text.bold()
-    setSelected(text);
-  }
-
+const App = () => {
   return (
-    <div className="App">
-      <h1>The Catalyst</h1>
-      <div contentEditable={"true"} className="input" onMouseUp={handleSelection} >
-        asasas
-        </div>
-      <div className="output">
-        <p>{selected}</p>
-      </div>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path = "/" element = {<Home />} />
+      </Routes>
+    </Router>
+  )
 }
-
 export default App;
