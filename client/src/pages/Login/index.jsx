@@ -37,7 +37,14 @@ const Login = () => {
                     <TextField className={styles.input} onChange={e => setEmail(e.target.value)} placeholder='abc@gmail.com' label="E-mail" variant="outlined" />
                     <TextField className={styles.input} onChange={e => setPassword(e.target.value)} label="Password" type="password" variant="outlined" />
                     <span className={styles.error}>{(isError && !loading) && <><AiFillWarning /> {errorMsg}</> }</span>
-                    {!loading && <button onClick={handleLogin} className={`${styles.button} ${styles.signIn}`}>Sign In</button>}
+                    {!loading && 
+                    <>
+                    {(email === "") || (password === "") ? 
+                    <button className={`${styles.button} ${styles.signIn} ${styles.disabled}`} >Sign In</button> :
+                    <button onClick={handleLogin} className={`${styles.button} ${styles.signIn}`}>Sign In</button>}
+                    </>
+
+                    }
                     {loading && <Loader />}
                     <span className={styles.or}>OR</span>
                     <button className={`${styles.button} ${styles.google}`}>
@@ -49,7 +56,7 @@ const Login = () => {
                         Continue With Facebook
                     </button>
                     <hr className={styles.divider} />
-                    <p className={styles.text}>Don't have an account? <Link to='/register'>Sign Up</Link></p>
+                    <p className={styles.text}>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                 </div>
             </div>
         </Layout>

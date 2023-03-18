@@ -9,7 +9,7 @@ const Post = require('./routes/posts/create-post');
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-app.use('/api/register', Register);
+app.use('/api', Register);
 app.use('/api/login', Login);
 app.use('/api/post', Post);
 

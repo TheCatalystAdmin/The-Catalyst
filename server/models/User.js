@@ -61,7 +61,7 @@ const schema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true,
+        required: false,
     },
     posts: {
         type: [String],

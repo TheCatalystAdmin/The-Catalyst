@@ -1,3 +1,4 @@
+/* These styles will be shared across the login and register pages */
 .wrapper {
     height: calc(100vh - 70px);
     display: flex;
@@ -23,11 +24,14 @@
     width: 90%;
     margin-top: 20px !important;
 }
-.error {
+.error, .success {
     color: red;
     font-size: 1rem;
     margin-top: 20px;
     height: 20px
+}
+.success {
+    color: green;
 }
 .button {
     width: 90%;
@@ -44,6 +48,14 @@
     &:hover {
         background-color: #FFD700;
         color: #000;
+    }
+}
+.disabled {
+    cursor: not-allowed;
+    background-color: rgb(197, 197, 197);
+    &:hover {
+        background-color: rgb(197, 197, 197);
+        color: #fff;
     }
 }
 .signIn {
@@ -75,4 +87,10 @@
     margin: 20px 0px;
     border-top: 0.5px solid rgb(197, 197, 197);
     width: 50%;
+}
+.text {
+    text-align: center;
+}
+.text a {
+    color: blue;
 }
