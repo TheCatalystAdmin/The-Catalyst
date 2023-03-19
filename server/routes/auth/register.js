@@ -40,10 +40,10 @@ router.get('/check-username', async (req, res) => {
     return res.json({message: 'Username is available'});
 })
 
-//Modify an existing user
-router.put('/modify', async (req, res) => {
-    const {username, email} = req.body;
-    const user = await User.findOne({email});
+//Modify an existing user's username
+router.put('/set-username', async (req, res) => {
+    const {username, id} = req.body;
+    const user = await User.findOne({_id: id});
     if (!user) return res.status(404).json(createError('User not found', 404));
     user.username = username;
     try {
