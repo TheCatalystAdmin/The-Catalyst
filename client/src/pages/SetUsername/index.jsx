@@ -62,7 +62,7 @@ const SetUsername = () => {
                 <div className={styles.box}>
                     <h2>Create a Username</h2><br />
                     <p>This will be displayed in your profile page, and for your URL</p>
-                    <TextField autoComplete={"off"} className={styles.input} onChange={checkIfExists} placeholder='johnsnow123' label="Username" variant="standard" />
+                    <TextField autoComplete="off" className={styles.input} onChange={checkIfExists} placeholder='johnsnow123' label="Username" variant="standard" />
                     {(isError && !loading) && <span className={styles.error}><><AiFillWarning /> {errorMsg}</></span>}
                     {(available && !loading && username!=="") &&<span className={styles.success}> <>{"@" + username} is available</></span>}
                     {!loading && <>

@@ -3,7 +3,7 @@ import Layout from '../../components/Layout';
 import styles from "../../sass/Login.module.scss";
 import TextField from '@mui/material/TextField';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiFillWarning } from 'react-icons/ai';
 import Loader from '../../components/Loader';
 import { SignIn } from './handler';
@@ -14,12 +14,15 @@ const Login = () => {
     const [isError, setIsError] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         setLoading(true);
         SignIn(email, password)
         .then(res => {
             console.log(res.data);
+            sessionStorage.setItem('token', res.data.token);
+            navigate('/feed');
         })
         .catch(err => {
             console.log(err);

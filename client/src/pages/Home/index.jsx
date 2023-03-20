@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import styles from "../../sass/Home.module.scss";
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
                     Join the club. With thousands of others. <br />
                     And share your story of passion.</p>
                     <div className={styles.buttonWrapper}>
-                        <div className={styles.button}>Sign Up</div>
+                        <Link to='/signup'><div className={styles.button}>Sign Up</div></Link>
                         <div className={`${styles.button} ${styles.button2}`}>Visit Feed</div>
                     </div>
                 </div>

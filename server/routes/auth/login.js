@@ -14,6 +14,6 @@ router.post('/', async (req, res) => {
     if (!valid) return res.status(401).json(createError('Invalid password', 401));
     //Create and assign a token
     const token = jwt.sign({_id: exists._id}, process.env.TOKEN_SECRET);
-    return res.header('auth-token', token).json(exists);
+    return res.json({...exists._doc, token});
 });
 module.exports = router;
