@@ -33,7 +33,7 @@ const postSchema = new mongoose.Schema({
         type: Date,
     },
     body: {
-        type: String,
+        type: Array
     },
     hearts: {
         type: Number,

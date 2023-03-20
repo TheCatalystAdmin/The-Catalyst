@@ -4,5 +4,6 @@ export const ENDPOINTS = {
     LOGIN: URL + "/login",
     REGISTER: URL + "/register",
     CHECK_USERNAME_EXISTS: URL + "/check-username",
-    SET_USERNAME: URL + "/set-username"
+    SET_USERNAME: URL + "/set-username",
+    NEW_POST: URL + "/post/new",
 }
