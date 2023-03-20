@@ -1,0 +1,17 @@
+.editor {
+    font-size: 1.4rem;
+    margin-top: 50px;
+    & >div {
+        & > div {
+            & > div {
+                & > div {
+                    // border: 2px solid rgb(199, 0, 230);
+                    
+                    & > div {
+                        width: 110% !important;
+                    }
+                }
+            }
+        }
+    }
+}

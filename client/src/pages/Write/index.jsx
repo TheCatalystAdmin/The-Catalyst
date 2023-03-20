@@ -4,6 +4,7 @@ import EditorJS from '@editorjs/editorjs';
 import { editorConfig } from "../../utils/editorConfig";
 import axios from 'axios';
 import { ENDPOINTS } from "../../utils/endpoints";
+import styles from "../../sass/Write.module.scss"
 
 const Write = () => {
 
@@ -15,8 +16,8 @@ const Write = () => {
             console.log(output);
             const data = {
                 "email": "nehjoshi5@gmail.com",
-                "title": "Get Rich Quick!",
-                "description": "This is a description",
+                "title": "THIS Book Has The Ability to Transform Your Life",
+                "description": "This powerful book has the potential to profoundly transform your life for the better.",
                 "body": output.blocks
             }
             await axios.post(ENDPOINTS.NEW_POST, data);
@@ -26,7 +27,7 @@ const Write = () => {
 
     return (
         <Layout>
-            <div id="editor" style={{fontSize: "1.2rem"}}>
+            <div id="editor" className={styles.editor} >
 
             </div>
             <button onClick={SubmitPost}>Submit</button>
