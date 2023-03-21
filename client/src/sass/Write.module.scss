@@ -31,3 +31,24 @@
     font-family: 'Oxygen', sans-serif;
     font-weight: bold;
 }
+.infoBox {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    display: block;
+    width: 40%;
+    border: 1px solid rgb(218, 218, 218);
+    padding: 20px 20px;
+    font-family: 'Oxygen';
+}
+.boxTitle {
+    font-size: bold;
+    font-size: 2rem;
+}
+.boxName {
+    font-size: 1.1rem;
+    color: rgb(167, 167, 167);
+}
+.boxDescription {
+    font-size: 1.4rem;
+}

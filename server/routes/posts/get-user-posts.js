@@ -2,6 +2,7 @@ const User = require('../../models/User');
 const Post = require('../../models/Post');
 const router = require('express').Router();
 
+//Fetch a user's posts
 router.get('/fetch-user-posts', async (req, res) => {
     const {id} = req.query;
     const user = await User.findById(id);
@@ -18,4 +19,11 @@ router.get('/fetch-user-posts', async (req, res) => {
     }
     return res.json(dataToSend);
 });
+
+//Fetch a particular post
+router.get('/fetch-post', async (req, res) => {
+    const {id} = req.query;
+    const post = await Post.findById(id);
+    return res.json(post);
+})
 module.exports = router;

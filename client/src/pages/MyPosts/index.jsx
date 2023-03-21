@@ -4,6 +4,7 @@ import styles from "../../sass/Write.module.scss"
 import PageLoader from "../../components/PageLoader";
 import { verifyToken } from "../../utils/verifyToken";
 import { GetMyPosts } from "./handler";
+import { Link } from "react-router-dom";
 
 const MyPosts = () => {
     const [verified, setVerified] = useState(false);
@@ -30,11 +31,13 @@ const MyPosts = () => {
         <Layout>
             {posts.map(post => {
                 return (
-                    <div className={styles.infoBox}>
-                        <h3>{post.title}</h3>
-                        <p>{post.authorName} &nbsp; {post.authoruserName}</p>
-                        <p>{post.description}</p>
-                    </div>
+                    <Link to={`/post/${post.id}`}>
+                        <div className={styles.infoBox}>
+                            <h3 className={styles.boxTitle}>{post.title}</h3>
+                            <p className={styles.boxName}>{post.authorName} &nbsp; {post.authoruserName}</p>
+                            <p className={styles.boxDescription}>{post.description}</p>
+                        </div>
+                    </Link>
                 )
             })
             }

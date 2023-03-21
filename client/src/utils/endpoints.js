@@ -8,4 +8,5 @@ export const ENDPOINTS = {
     CHECK_STATUS: URL + "/check-status",
     NEW_POST: URL + "/post/new",
     GET_USER_POSTS: URL + "/post/fetch-user-posts",
+    FETCH_POST: URL + "/post/fetch-post",
 }
