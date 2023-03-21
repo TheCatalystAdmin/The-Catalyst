@@ -7,4 +7,5 @@ export const ENDPOINTS = {
     SET_USERNAME: URL + "/set-username",
     CHECK_STATUS: URL + "/check-status",
     NEW_POST: URL + "/post/new",
+    GET_USER_POSTS: URL + "/post/fetch-user-posts",
 }

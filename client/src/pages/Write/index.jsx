@@ -13,7 +13,6 @@ const Write = () => {
     const [verified, setVerified] = useState(false);
     const token = sessionStorage.getItem("token");
     const id = sessionStorage.getItem("_id");
-    const [title, setTitle] = useState("");
     useEffect(() => {
         if (token && id) {
             verifyToken(id, token)
@@ -33,7 +32,7 @@ const Write = () => {
             .then(async output => {
                 console.log(output);
                 const data = {
-                    "email": "nehjoshi5@gmail.com",
+                    "id": id,
                     "title": document.getElementById("title").value,
                     "description": "Why your fixed mindset is stopping you from where you want to get to.",
                     "body": output.blocks
