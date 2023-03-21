@@ -22,6 +22,7 @@ const Login = () => {
         .then(res => {
             console.log(res.data);
             sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('_id', res.data._id);
             navigate('/feed');
         })
         .catch(err => {

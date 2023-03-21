@@ -43,3 +43,10 @@ $text: #2F4858;
     margin-bottom: 20px;
     justify-content: center;
 }
+.pageLoader {
+    height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

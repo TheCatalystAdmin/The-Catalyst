@@ -6,12 +6,14 @@ const mongoose = require('mongoose');
 const Register = require('./routes/auth/register');
 const Login = require('./routes/auth/login');
 const Post = require('./routes/posts/create-post');
+const CheckStatus = require('./routes/auth/check-status');
 dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use('/api', Register);
 app.use('/api/login', Login);
 app.use('/api/post', Post);
+app.use('/api/check-status', CheckStatus);
 
 //Connect to DB
 try {

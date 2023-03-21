@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
 .editor {
     font-size: 1.4rem;
     margin-top: 50px;
@@ -14,4 +15,18 @@
             }
         }
     }
+}
+.title {
+    margin: 0 auto;
+    display: block;
+    width: 35%;
+    font-size: 3rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid gray;
+    overflow: hidden;
+    resize: none;
+    height: fit-content;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
 }
