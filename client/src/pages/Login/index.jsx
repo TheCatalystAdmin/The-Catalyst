@@ -7,30 +7,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiFillWarning } from 'react-icons/ai';
 import Loader from '../../components/Loader';
 import { SignIn } from './handler';
+import { Snackbar, Alert } from '@mui/material';
 
-const Login = () => {
+const Login = ({ error }) => {
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const [isError, setIsError] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [open, setOpen] = useState(true);
     const navigate = useNavigate();
 
     const handleLogin = () => {
         setLoading(true);
         SignIn(email, password)
-        .then(res => {
-            console.log(res.data);
-            sessionStorage.setItem('token', res.data.token);
-            sessionStorage.setItem('_id', res.data._id);
-            navigate('/feed');
-        })
-        .catch(err => {
-            console.log(err);
-            setErrorMsg(err.response.data.message);
-            setLoading(false);
-            setIsError(true);
-        })
+            .then(res => {
+                console.log(res.data);
+                sessionStorage.setItem('token', res.data.token);
+                sessionStorage.setItem('_id', res.data._id);
+                navigate('/write');
+            })
+            .catch(err => {
+                console.log(err);
+                setErrorMsg(err.response.data.message);
+                setLoading(false);
+                setIsError(true);
+            })
     }
 
     return (
@@ -40,13 +42,13 @@ const Login = () => {
                     <h2>Let's Get You Signed In</h2>
                     <TextField className={styles.input} onChange={e => setEmail(e.target.value)} placeholder='abc@gmail.com' label="E-mail" variant="outlined" />
                     <TextField className={styles.input} onChange={e => setPassword(e.target.value)} label="Password" type="password" variant="outlined" />
-                    <span className={styles.error}>{(isError && !loading) && <><AiFillWarning /> {errorMsg}</> }</span>
-                    {!loading && 
-                    <>
-                    {(email === "") || (password === "") ? 
-                    <button className={`${styles.button} ${styles.signIn} ${styles.disabled}`} >Sign In</button> :
-                    <button onClick={handleLogin} className={`${styles.button} ${styles.signIn}`}>Sign In</button>}
-                    </>
+                    <span className={styles.error}>{(isError && !loading) && <><AiFillWarning /> {errorMsg}</>}</span>
+                    {!loading &&
+                        <>
+                            {(email === "") || (password === "") ?
+                                <button className={`${styles.button} ${styles.signIn} ${styles.disabled}`} >Sign In</button> :
+                                <button onClick={handleLogin} className={`${styles.button} ${styles.signIn}`}>Sign In</button>}
+                        </>
 
                     }
                     {loading && <Loader />}
@@ -63,6 +65,11 @@ const Login = () => {
                     <p className={styles.text}>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                 </div>
             </div>
+            <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>
+                <Alert onClose={() => setOpen(false)} severity="error" sx={{ width: '100%' }}>
+                    Please sign in first
+                </Alert>
+            </Snackbar>
         </Layout>
     )
 }
