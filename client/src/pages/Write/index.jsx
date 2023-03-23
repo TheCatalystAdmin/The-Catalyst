@@ -17,7 +17,7 @@ const Write = () => {
     const id = sessionStorage.getItem("_id");
     const [dialogOpen, setDialogOpen] = useState(false);
     const [description, setDescription] = useState("");
-    const [topics, setTopics] = useState(["", "", "", "", ""]);
+    const [topics, setTopics] = useState(["", "", "", ""]);
     const navigate = useNavigate();
     useEffect(() => {
         if (token && id) {
@@ -29,7 +29,7 @@ const Write = () => {
                             holder: 'editor',
                             placeholder: 'Begin writing here...',
                         }));
-                    }, 1000);
+                    }, 500);
                 })
                 .catch(err => {
                     console.log(err);
@@ -41,6 +41,7 @@ const Write = () => {
     }, [id, token, navigate])
 
     const SubmitPost = () => {
+        console.log(topics);
         const data = {
             id: id,
             title: document.getElementById("title").value,

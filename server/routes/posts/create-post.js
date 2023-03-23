@@ -5,10 +5,10 @@ const router = require('express').Router();
 
 //Create a new post
 router.post('/new', async (req, res) => {
-    const {title, description, body, id} = req.body;
+    const {title, description, body, id, topics} = req.body;
     const user = await User.findOne({_id: id});
     if (!user) return res.status(404).json(createError('User not found', 404));
-    const post = new Post({title, description, body, authorName: user.firstName + " " + user.lastName, authorUsername: user.username});
+    const post = new Post({title, topics, description, body, authorName: user.firstName + " " + user.lastName, authorUsername: user.username});
     try {
         const savedPost = await post.save();
         user.posts.push(savedPost._id);
